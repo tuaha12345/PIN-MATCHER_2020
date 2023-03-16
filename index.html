@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PIN MATCHER</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<main class=" d-flex justify-content-center">
+	
+	
+		<div class="col-6  box_size ms-4 get_pin my-5 text-center">
+			<input type="text" name="" class="display_box my-4" id="display1">
+			<div class="button_div ">	
+					<button type="button" class="btn btn-primary" value="fkdjfdj" onclick="display1()">Generate<br>Pin</button>
+			</div>
+		</div>
+
+
+		<div class="col-6 box_size ms-4 submit_pin my-5 text-center">
+			<input type="text" name="" class="display_box my-4" id="display2" value=" ">
+			<div class="Button text-center">
+			
+				<button class="m-2 buttonName" id="seven" value="7" onclick="get_value_Function(this.value)">7</button>
+				<button class="m-2 buttonName" id="eight" value="8" onclick="get_value_Function(this.value)">8</button>
+				<button class="m-2 buttonName" id="nine" value="9" onclick="get_value_Function(this.value)">9</button>
+				
+				<br>
+				<button class="m-2 buttonName" id="six" value="6" onclick="get_value_Function(this.value)">6</button>
+				<button class="m-2 buttonName" id="five" value="5" onclick="get_value_Function(this.value)">5</button>
+				<button class="m-2 buttonName" id="four" value="4" onclick="get_value_Function(this.value)">4</button>
+				
+			    <br>
+				<button class="m-2 buttonName" id="three" value="3" onclick="get_value_Function(this.value)">3</button>
+				<button class="m-2 buttonName" id="two" value="2" onclick="get_value_Function(this.value)">2</button>
+				<button class="m-2 buttonName" id="one" value="1" onclick="get_value_Function(this.value)">1</button>
+			
+		        <br>
+		        <button class="m-2 buttonName" id="pre" value="pre" onclick="remove_last_character()"><</button>
+				<button class="m-2 buttonName" id="zero" value="0" onclick="get_value_Function(this.value)">0</button>
+				<button class="m-2 buttonName" id="C" value="C" onclick="clear_display()">C</button>
+				<br>
+				<button class="submit_button text-white" id="submit" onclick="Match()">Submit</button>
+
+		    </div>
+                  <p class="text-danger " id="warning"></p>
+		</div>
+
+
+
+  </main>
+
+
+   <section class="show text-center d-flex justify-content-center">
+   <div class="">
+   	   	<div class="text-white result m-2 py-2" id="pinDidn'tMatched">
+   		❌ Pin Didn't Match, Please try again
+    </div>
+
+    <div class="text-white result m-2 py-2 " id="pinMatched">
+   		✅Pin Matched.., Secret door is opening for you</div>
+    </div>
+   </div>
+   </section>
+
+
+
+
+
+
+  <script type="text/javascript">
+
+
+  	   //////////////// for display1 /////////
+    function display1()
+    {
+    	let random=Math.floor(Math.random() * 110);
+    	 let total=random+random;
+    	let dis1Value=document.getElementById('display1').value=total+100;
+    	display1Value=dis1Value;////// convert the variable to global
+
+    }
+  
+  //////////////// for display2 /////////
+
+  	function get_value_Function(n) {
+  		
+
+     var dis=document.getElementById('display2');
+     dis.value=dis.value+n; 
+     display2Value=dis.value;////// Global variable another way to declear 
+                            //////a global variable window.display2Value=dis.value
+
+
+   }
+   ///////////////// Matching Calculation using submit button//////////////
+   let count=3;
+    function Match()
+    {
+
+    	  var display2Value=document.getElementById('display2').value;
+       var display1Value=document.getElementById('display1').value;
+    	if(parseFloat(display2Value)==parseFloat(display1Value))
+    	{
+
+    		document.getElementById('pinMatched').style.display='block';
+    		document.getElementById("pinDidn'tMatched").style.display='none';
+    		document.getElementById("warning").style.display='none';
+
+    	}
+    	else
+    	{
+    		document.getElementById("pinDidn'tMatched").style.display='block';
+    		document.getElementById("warning").style.display='block';
+    		count=count-1;
+    	    if(count==0)
+    	    {
+    	    	document.getElementById("submit").style.display='none';
+    	    }
+    		document.getElementById("warning").innerText=count+" try left";
+
+    		console.log("else er jonno"+display2Value);
+
+    	}
+
+
+
+    }
+
+    //////////////////////// Clear/////////////////////////
+    function clear_display()
+    {
+    	document.getElementById('display2').value=" ";
+    }
+
+
+    //////////////////////// pop /////////////////////////
+    function remove_last_character()
+    {
+    	var string =document.getElementById('display2').value ;
+      string = string.slice(0,-1);//remove the last character 
+			//string = string.substring(0, string.length-1); // or remove the last character 
+			document.getElementById('display2').value=string;
+			console.log(string);
+
+    }
+
+  	
+  </script>
+</body>
+</html>

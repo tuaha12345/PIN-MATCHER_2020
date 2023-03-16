@@ -1,0 +1,61 @@
+body{
+	background-color:#13111f;
+}
+.main{
+	background-color: dimgray;
+	width: 1000px;
+}
+.box_size{
+	width: 400px;
+	height: 500px;
+	background-color:#293140;
+}
+
+.display_box{
+	height:45px;
+	width:300px;
+	background-color:#353b47;
+	color:white;
+}
+input{
+	text-align: end;
+}
+.button_div{
+	margin-top: 70px;
+}
+.get_pin button{
+	font-weight: bolder;
+	height:140px;
+	width:140px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 20px  #3877c9; /* offset-x | offset-y | blur-radius | color */
+}
+
+
+/* ------------------------- 2nd -------------------- */
+
+
+button{
+	background: dimgray;
+	height:60px;
+	width:70px;
+	border-radius: 5px;
+	font-weight: bolder;
+
+}
+
+.submit_button{
+	background:#3877c9;
+	width:60%;
+	height:50px;
+	border: none;
+}
+
+/* ------------------------- show pin mathch or not -------------------- */
+
+.result{
+	background-color:#353b47;
+	width:500px;
+	border-radius:10px;
+	display: none;
+}
